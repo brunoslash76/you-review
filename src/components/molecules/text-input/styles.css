@@ -1,0 +1,9 @@
+.text-input--container {
+    position: relative;
+}
+
+.text-input--error {
+    position: absolute;
+    bottom: -21px;
+    color: var(--danger)
+}
