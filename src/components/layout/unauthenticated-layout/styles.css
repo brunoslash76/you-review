@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
-
 .wrapper {
     height: 100vh;
     background-image: url('../../../public/background.png');
@@ -9,6 +7,7 @@
 
 .container {
     position: relative;
+    display: flex;
     top: 0;
     height: inherit;
     background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, .7), white, white, white);
@@ -18,7 +17,7 @@
     margin-left: auto;
     width: 100%;
     max-width: 40%;
-    padding: 32px 0 0 32px
+    padding: 32px 32px 0 32px;
 }
 
 h1 {
@@ -26,5 +25,5 @@ h1 {
     padding: 32px 0 0 32px;
     color: white;
     font-size: 62px;
-    font-family: 'Mate SC';
+    font-weight: 400;
 }

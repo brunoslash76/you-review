@@ -8,7 +8,6 @@ export const UnauthenticatedLayout = (props) => {
             <div className="container">
                 <h1>You Review</h1>
                 <section className="content">
-
                     {children}
                 </section>
             </div>  
