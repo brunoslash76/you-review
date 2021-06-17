@@ -1,0 +1,13 @@
+{
+    "presets": [
+        "react-app"
+    ],
+    "plugins": [
+        "react-require"
+    ],
+    "env": {
+        "development": {
+            "compact": false
+        }
+    }
+}
