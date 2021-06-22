@@ -7,7 +7,7 @@ export const TextInput = (props) => {
             <input
                 {...props}
             />
-            <div className="text-input--error">{error && error}</div>
+            <div className="text-input--error" data-testId="error-message" >{error && error}</div>
         </div>
     )
 }
