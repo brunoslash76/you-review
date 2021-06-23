@@ -1,15 +1,35 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
+import { login } from 'infra/http/login'
 import { loginValidations } from '../../helpers'
 import { UnauthenticatedLayout, TextInput, Button } from '../../components'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './styles.css'
+import { useUser } from 'hooks/user-hook'
 
 export const Login = (props) => {
+  const [loading, setLoading] = useState(false)
+  const { user, setUser } = useUser()
+  const history = useHistory()
 
-
-  const handleLogin = (payload) => {
-    console.log(payload)
+  const handleLogin = async (payload) => {
+    setLoading(true)
+    try {
+      const { data } = await login(payload)
+      delete data[0].password
+      setUser(data[0])
+      setLoading(false)
+      history.push('/home')
+    } catch (error) {
+      console.error(error)
+      toast('Oops, we got an error! Plese try again')
+    }
   }
+
+  useEffect(() => console.log(user), [user])
 
   const { values, handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
@@ -20,15 +40,14 @@ export const Login = (props) => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: () => handleLogin({
-      name: values.name,
-      phone: values.phone,
+      password: values.password,
       email: values.email
     })
   })
 
   return (
     <UnauthenticatedLayout>
-      <div className="login-controller">
+      <div className="unauth-form-controller">
         <div>
           <header>
             <h2>Login</h2>
@@ -42,7 +61,6 @@ export const Login = (props) => {
               placeholder="e-mail"
               onChange={handleChange}
               error={errors.email}
-              data-testId="email"
             />
           </div>
           <div className="input-control">
@@ -53,7 +71,6 @@ export const Login = (props) => {
               placeholder="password"
               onChange={handleChange}
               error={errors.password}
-              data-testId="password"
             />
             <div className="text-to-right">
               <p>forgot password? <Link className="highlight" to="/forgot-password">click here</Link></p>
@@ -64,16 +81,18 @@ export const Login = (props) => {
           <Button
             kind="primary"
             onClick={handleSubmit}
-            data-testId="button-submit"
+            loading={loading}
+            type="button"
           >
             sign in
           </Button>
         </div>
       </div>
+      <ToastContainer />
     </UnauthenticatedLayout>
   )
 }
 
-Login.path = '/login'
+Login.path = '/'
 Login.secure = false
 Login.title = 'Login'
