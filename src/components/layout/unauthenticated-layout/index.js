@@ -6,7 +6,7 @@ export const UnauthenticatedLayout = (props) => {
     return (
         <div className="wrapper">
             <div className="container">
-                <h1>You Review</h1>
+                <h1 className="unauth">You Review</h1>
                 <section className="content">
                     {children}
                 </section>
