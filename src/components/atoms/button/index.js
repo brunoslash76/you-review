@@ -10,7 +10,7 @@ export const Button = (props) => {
       {...props}
     >
       {children}
-      {loading && <img src={loader} alt="Loading icon moving in a eigth pattern" />}
+      {loading && <img className="loader" src={loader} alt="Loading icon moving in a eigth pattern" />}
     </button>
   )
 }
