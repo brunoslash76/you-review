@@ -1,0 +1,18 @@
+.restaurant-item--wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.restaurant-item--image-container {
+    margin-right: 16px;
+}
+
+.restaurant-item--info-container {
+
+}
+
+.restaurant-item--star-container > img{
+    height: 20px;
+    margin-right: 8px;
+}
