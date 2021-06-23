@@ -9,7 +9,7 @@
   --text: #333333;
 }
 
-* {
+html {
   font-size: 10px;
 }
 
@@ -24,12 +24,16 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Mate SC';
 }
 
+h3 {
+  font-size: 3.2rem;
+}
+
 input {
-  font-size: 20px;
+  font-size: 2rem;
   font-family: 'Roboto';
   border: none;
   border-bottom: 1px solid var(--light-gray);
@@ -63,4 +67,12 @@ p {
 
 .highlight {
   color: var(--primary)
+}
+
+.unauth-form-controller {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  height: 100%;
 }
