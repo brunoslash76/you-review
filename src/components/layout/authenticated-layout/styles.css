@@ -1,0 +1,36 @@
+.auth-wrapper {
+    height: 100vh;
+    background-image: url('../../../public/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.auth-container {
+    display: block;
+    position: relative;
+    top: 0;
+    background-image: linear-gradient(to left, transparent, rgba(255, 255, 255, .7), white, white, white);
+    padding: 32px 32px 0 32px;
+    height: inherit;
+}
+
+.auth-content {
+    margin-right: auto;
+    width: 100%;
+    max-width: 60%;
+}
+
+.auth-h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: 62px;
+    font-weight: 400;
+}
+
+.auth-header {
+    width: fit-content;
+}
+
+.auth-header > p {
+    text-align: right;
+}
