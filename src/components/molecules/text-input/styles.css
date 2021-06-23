@@ -7,3 +7,15 @@
     bottom: -21px;
     color: var(--danger)
 }
+
+.text-input-buttom {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 3px;
+    right: 0;
+}
+
+.text-input-buttom > img {
+    width: 20px;
+}
