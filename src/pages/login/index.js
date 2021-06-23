@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { login } from 'infra/http/login'
@@ -25,7 +25,7 @@ export const Login = (props) => {
       history.push('/home')
     } catch (error) {
       console.error(error)
-      toast('Oops, we got an error! Plese try again')
+      toast.error('Oops, we got an error! Plese try again')
     }
   }
 
@@ -45,11 +45,15 @@ export const Login = (props) => {
     })
   })
 
+  const isButtonDisabled = useMemo(() => (
+    errors.email || errors.password || values.email === '' || values.password === ''
+  ), [errors, values])
+
   return (
     <UnauthenticatedLayout>
       <div className="unauth-form-controller">
         <div>
-          <header>
+          <header className="login-header">
             <h2>Login</h2>
           </header>
 
@@ -78,11 +82,15 @@ export const Login = (props) => {
           </div>
         </div>
         <div>
+          <div className="text-to-right">
+            <p>don't have an account? <Link className="highlight" to="/sign-up">click here</Link></p>
+          </div>
           <Button
             kind="primary"
             onClick={handleSubmit}
             loading={loading}
             type="button"
+            disabled={isButtonDisabled}
           >
             sign in
           </Button>
