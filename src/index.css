@@ -9,6 +9,11 @@
   --text: #333333;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 html {
   font-size: 10px;
 }
@@ -46,12 +51,22 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  background-color: var(--light-gray);
+  color: var(--text)
+}
+
 a {
   text-decoration: none;
 }
 
 p {
-  color: var(--text)
+  color: var(--text);
+  font-size: 1.4rem;
+}
+
+ol {
+  list-style: none;
 }
 
 .input-control {
@@ -75,4 +90,8 @@ p {
   flex: 1;
   justify-content: space-between;
   height: 100%;
+}
+
+.clickable {
+  cursor: pointer;
 }
