@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useHistory, Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { UnauthenticatedLayout, TextInput, Button } from 'components'
@@ -13,6 +13,7 @@ export const ForgotPassword = (props) => {
   const [loading, setLoading] = useState()
   const history = useHistory()
   const { setUser } = useUser()
+  
 
   const handleRecoverPassword = async (email) => {
     setLoading(true)
@@ -42,6 +43,10 @@ export const ForgotPassword = (props) => {
     onSubmit: () => handleRecoverPassword(values.email)
   })
 
+  const isButtonDisabled = useMemo(() => (
+    errors.email || values.email === ''
+  ), [errors, values])
+
   return (
     <UnauthenticatedLayout>
       <div className="unauth-form-controller">
@@ -61,7 +66,7 @@ export const ForgotPassword = (props) => {
             />
           </div>
           <div className="text-to-right">
-            <p>have an account? <Link className="highlight" to="/">click here</Link></p>
+            <p>remembered passwor? <Link className="highlight" to="/">click here</Link></p>
           </div>
         </div>
         <div>
@@ -71,6 +76,7 @@ export const ForgotPassword = (props) => {
           onClick={handleSubmit}
           loading={loading}
           type="button"
+          disabled={isButtonDisabled}
         >
           recover
         </Button>
