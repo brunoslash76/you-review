@@ -1,0 +1,134 @@
+{
+    "users": [
+        {
+            "id": "0000",
+            "name": "Bruno",
+            "email": "bruno@email.com",
+            "password": "123456",
+            "role": "admin"
+        },
+        {
+            "id": "0001",
+            "name": "Juquinha",
+            "email": "juquinha@email.com",
+            "password": "123456",
+            "role": "owner"
+        },
+        {
+            "id": "0002",
+            "name": "Joe",
+            "email": "joe@email.com",
+            "password": "123456",
+            "role": "regular"
+        },
+        {
+            "id": "0003",
+            "name": "Jena",
+            "email": "jena@email.com",
+            "password": "123456",
+            "role": "regular"
+        },
+        {
+            "id": "0004",
+            "name": "Mia",
+            "email": "mia@email.com",
+            "password": "123456",
+            "role": "regular"
+        },
+        {
+            "id": "0005",
+            "name": "malaquias",
+            "email": "malaquias@email.com",
+            "password": "123456",
+            "role": "owner"
+        },
+        {
+            "id": "0006",
+            "name": "Don Corleone",
+            "email": "don@email.com",
+            "password": "123456",
+            "role": "owner"
+        },
+        {
+            "id": "0007",
+            "name": "Don Corleone",
+            "email": "don@email.com",
+            "password": "123456",
+            "role": "owner"
+        }
+    ],
+    "restaurants": [
+        {
+            "id": "0001",
+            "owner_id": "0005",
+            "name": "El Chorizzo",
+            "average_rating": 4,
+            "total_reviews": 3
+        },
+        {
+            "id": "0002",
+            "owner_id": "0007",
+            "name": "Flavors of Lebanon",
+            "average_rating": 4,
+            "total_reviews": 3
+        },
+        {
+            "id": "0003",
+            "owner_id": "0006",
+            "name": "Café del Mar",
+            "average_rating": 4,
+            "total_reviews": 3
+        },
+        {
+            "id": "0004",
+            "owner_id": "0001",
+            "name": "Cadillac Burger",
+            "average_rating": 4,
+            "total_reviews": 3
+        }
+    ],
+    "reviews": [
+        {
+            "user_id": "0002",
+            "restaurant_id": "0001",
+            "comment": "Very nice service and food",
+            "ratting": 4,
+            "answer": null
+        },
+        {
+            "user_id": "0003",
+            "restaurant_id": "0001",
+            "comment": "The owner is very attentive",
+            "ratting": 4,
+            "answer": null
+        },
+        {
+            "user_id": "0004",
+            "restaurant_id": "0001",
+            "comment": "The waitress is very fast and the food is awesome",
+            "ratting": 4,
+            "answer": null
+        },
+        {
+            "user_id": "0003",
+            "restaurant_id": "0002",
+            "comment": "The owner is very attentive",
+            "ratting": 4,
+            "answer": null
+        },
+        {
+            "user_id": "0002",
+            "restaurant_id": "0001",
+            "comment": "The owner is very attentive",
+            "ratting": 4,
+            "answer": null
+        },
+        {
+            "user_id": "0004",
+            "restaurant_id": "0001",
+            "comment": "The waitress is very fast and the food is awesome",
+            "ratting": 4,
+            "answer": null
+        }
+    ]
+}
