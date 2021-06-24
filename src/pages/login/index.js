@@ -29,8 +29,6 @@ export const Login = (props) => {
     }
   }
 
-  useEffect(() => console.log(user), [user])
-
   const { values, handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       email: '',
