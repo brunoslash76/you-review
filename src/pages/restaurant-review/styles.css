@@ -1,0 +1,49 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.form-container label {
+    font-size: 16px;
+}
+
+.form-container textarea {
+    margin: 0px;
+    margin-top: 8px;
+    height: 243px;
+    width: 100%;
+    border: none;
+    box-shadow: 4px 4px 8px 1px rgb(0 0 0 / 40%);
+    border-radius: 5px;
+    resize: none;
+    padding: 16px;
+}
+
+.textarea-container {
+    margin-bottom: 32px;
+}
+
+.inline-container {
+    display: flex;
+}
+
+.inline-container > div {
+    flex: 1;
+}
+
+.inline-container > div:first-child {
+    margin-right: 32px
+}
+
+.form-container .select-container {
+    margin-top: 8px;
+}
+
+input[type="date"] {
+    margin-top: 8px;
+}
+
+.submit-container {
+    margin-top: 32px;
+}
