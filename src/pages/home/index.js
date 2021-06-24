@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom'
 export const Home = () => {
   const { user } = useUser()
   const history = useHistory()
-  console.log(user)
 
   const userRoleController = () => {
+    if (!user) return history.push('/')
     switch (user.role) {
       case ROLES.regular:
         return <RegularHome />
