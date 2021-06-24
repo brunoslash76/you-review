@@ -136,15 +136,15 @@
       "id": "0002",
       "owner_id": "0007",
       "name": "Flavors of Lebanon",
-      "average_rating": 2,
+      "average_rating": 4,
       "total_reviews": 3
     },
     {
       "id": "0003",
       "owner_id": "0006",
       "name": "Café del Mar",
-      "average_rating": 4,
-      "total_reviews": 3
+      "average_rating": 0,
+      "total_reviews": 0
     },
     {
       "id": "0004",
@@ -152,6 +152,34 @@
       "name": "Cadillac Burger",
       "average_rating": 1,
       "total_reviews": 3
+    },
+    {
+      "id": "0005",
+      "owner_id": "0001",
+      "name": "Mané Burguer",
+      "average_rating": 2,
+      "total_reviews": 1
+    },
+    {
+      "id": "0006",
+      "owner_id": "0001",
+      "name": "Taj Mahal",
+      "average_rating": 3,
+      "total_reviews": 6
+    },
+    {
+      "id": "0007",
+      "owner_id": "0001",
+      "name": "Sukyia",
+      "average_rating": 0,
+      "total_reviews": 0
+    },
+    {
+      "id": "0008",
+      "owner_id": "0001",
+      "name": "Feijão de Corda",
+      "average_rating": 4,
+      "total_reviews": 130
     }
   ],
   "reviews": [
@@ -162,7 +190,8 @@
       "restaurant_name": "El Chorizzo",
       "comment": "Very nice service and food",
       "ratting": 1,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-23"
     },
     {
       "user_id": "0003",
@@ -171,7 +200,8 @@
       "restaurant_name": "El Chorizzo",
       "comment": "The owner is very attentive",
       "ratting": 2,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-22"
     },
     {
       "user_id": "0004",
@@ -180,7 +210,8 @@
       "restaurant_name": "El Chorizzo",
       "comment": "The waitress is very fast and the food is awesome",
       "ratting": 3,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-21"
     },
     {
       "user_id": "0003",
@@ -189,7 +220,28 @@
       "restaurant_name": "Flavors of Lebanon",
       "comment": "The owner is very attentive",
       "ratting": 4,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-20"
+    },
+    {
+      "user_id": "0003",
+      "user_name": "Muri",
+      "restaurant_id": "0002",
+      "restaurant_name": "Flavors of Lebanon",
+      "comment": "The owner is very attentive",
+      "ratting": 2,
+      "answer": null,
+      "created_at": "2021-05-13"
+    },
+    {
+      "user_id": "0003",
+      "user_name": "Ilia",
+      "restaurant_id": "0002",
+      "restaurant_name": "Flavors of Lebanon",
+      "comment": "The owner is very attentive",
+      "ratting": 4,
+      "answer": null,
+      "created_at": "2021-05-20"
     },
     {
       "user_id": "0002",
@@ -198,7 +250,8 @@
       "restaurant_name": "El Chorizzo",
       "comment": "The owner is very attentive",
       "ratting": 4,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-19"
     },
     {
       "user_id": "0004",
@@ -207,7 +260,35 @@
       "restaurant_name": "El Chorizzo",
       "comment": "The waitress is very fast and the food is awesome",
       "ratting": 4,
-      "answer": null
+      "answer": null,
+      "created_at": "2021-05-18"
+    },
+    {
+      "name": "Bruno",
+      "email": "bruno@gmail.com",
+      "password": "123123",
+      "id": "0008"
+    },
+    {
+      "answer": null,
+      "comment": "Amazing service and food",
+      "created_at": "2021-06-24",
+      "ratting": 3,
+      "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
+      "user_name": "Joe",
+      "id": "01uQCkc"
+    },
+    {
+      "user_id": "0002",
+      "user_name": "Joe",
+      "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
+      "comment": "Amazing service and food",
+      "ratting": 3,
+      "answer": null,
+      "created_at": "2021-06-24",
+      "id": "Wh_72_v"
     }
   ]
 }
