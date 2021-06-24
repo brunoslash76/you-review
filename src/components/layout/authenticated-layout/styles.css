@@ -34,3 +34,17 @@
 .auth-header > p {
     text-align: right;
 }
+
+.auth-subtitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-name-right {
+    text-align: right;
+}
+
+.auth-restaurant-avaliation {
+    display: flex;
+    align-items: center;
+}
