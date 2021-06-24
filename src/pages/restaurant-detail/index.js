@@ -1,61 +1,111 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { getRestaurant } from 'infra/http/restaurant-detail'
 import { toast } from 'react-toastify'
-import { AuthenticatedLayout, RatingStars } from 'components'
+import { AuthenticatedLayout } from 'components/layout'
+import { RatingStars } from 'components/molecules'
+import { Button } from 'components/atoms'
+import { getRestaurant, getRestaurantReviews } from 'infra/http/restaurant-detail'
 import './styles.css'
+import { GoBackButton } from 'components/atoms/go-back-button'
 
-
-export const RestaurantDetail = (props) => {
+export const RestaurantDetail = () => {
   const history = useHistory()
   const [restaurant, setRestaurant] = useState(null)
+  const [reviews, setReviews] = useState([])
   const { restaurantId } = history.location.state
-  console.log(restaurantId)
 
   useEffect(() => {
     async function getRestaurantDetail() {
       try {
-        const result = await getRestaurant(restaurantId)
-        console.log(result)
-        setRestaurant(result.data[0])
+        const { data } = await getRestaurant(restaurantId)
+        setRestaurant(data[0])
       } catch (error) {
+        console.error(error)
         toast.error('Oopss we had a problem fetching the restaurant, try again later!')
       }
     }
     getRestaurantDetail()
   }, [restaurantId])
 
+  useEffect(() => {
+    async function getReviews() {
+      try {
+        const { data } = await getRestaurantReviews(restaurantId)
+        if (data.length > 0) {
+          setReviews(data)
+        }
+      } catch (error) {
+        toast.error('Oopss we had a problem fetching reviews, try again later!')
+      }
+    }
+    getReviews()
+  }, [restaurantId])
+
+  const renderHighestReview = () => {
+    const review = reviews?.sort((item1, item2) => item1.ratting < item2.ratting ? 1 : -1)[0]
+    return renderReview(review)
+  }
+
+  const renderLowestReview = () => {
+    const review = reviews?.sort((item1, item2) => item1.ratting > item2.ratting ? 1 : -1)[0]
+    return renderReview(review)
+  }
+
+  const renderLatestReview = () => {
+    const review = reviews?.sort((item1, item2) => {
+      const item1TimeStamp = new Date(item1.created_at)
+      const item2TimeStamp = new Date(item2.created_at)
+      return item1TimeStamp < item2TimeStamp ? 1 : -1
+    })[0]
+    console.log(review)
+    return renderReview(review)
+  }
+
+  const renderReview = (review) => {
+    if (!review || review.length <= 0) {
+      return <p>This restaurant has no reviews!</p>
+    }
+    return (
+      <>
+        <div>
+          <p>{review.user_name}</p>
+          <RatingStars averageRating={review.ratting} />
+        </div>
+        <p>{review.comment}</p>
+        {review.answer && <p>{review.answer}</p>}
+      </>
+    )
+  }
+
+  const handleCreateReview = () => {
+    return history.push({ pathname: `/review`, state: { restaurant } })
+  }
+
   return (
-    <AuthenticatedLayout 
+    <AuthenticatedLayout
       title={restaurant && restaurant.name}
       restaurant={restaurant}
+      navigation={() => (
+        <GoBackButton />
+      )}
     >
       <section className="restaurant-detail--rating">
         <h4>Highest Rate</h4>
-        <div>
-          <p>Joe</p>
-          <RatingStars averageRating={5}/>
-        </div>
-        <p>The restaurant serves a great food with good great service and the owner is very thoughtful</p>
+        {renderHighestReview()}
       </section>
 
       <section className="restaurant-detail--rating">
         <h4>Lowest Rate</h4>
-        <div>
-          <p>Joe</p>
-          <RatingStars averageRating={1}/>
-        </div>
-        <p>The restaurant serves a great food with good great service and the owner is very thoughtful</p>
+        {renderLowestReview()}
       </section>
 
       <section className="restaurant-detail--rating">
         <h4>Last Rate</h4>
-        <div>
-          <p>Joe</p>
-          <RatingStars averageRating={3}/>
-        </div>
-        <p>The restaurant serves a great food with good great service and the owner is very thoughtful</p>
+        {renderLatestReview()}
       </section>
+      <Button kind="primary" onClick={() => handleCreateReview()}>
+        Make your review
+      </Button>
     </AuthenticatedLayout>
   )
 }
