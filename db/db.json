@@ -157,42 +157,54 @@
   "reviews": [
     {
       "user_id": "0002",
+      "user_name": "Joe",
       "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
       "comment": "Very nice service and food",
       "ratting": 1,
       "answer": null
     },
     {
       "user_id": "0003",
+      "user_name": "Jena",
       "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
       "comment": "The owner is very attentive",
       "ratting": 2,
       "answer": null
     },
     {
       "user_id": "0004",
+      "user_name": "Mia",
       "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
       "comment": "The waitress is very fast and the food is awesome",
       "ratting": 3,
       "answer": null
     },
     {
       "user_id": "0003",
+      "user_name": "Jena",
       "restaurant_id": "0002",
+      "restaurant_name": "Flavors of Lebanon",
       "comment": "The owner is very attentive",
       "ratting": 4,
       "answer": null
     },
     {
       "user_id": "0002",
+      "user_name": "Joe",
       "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
       "comment": "The owner is very attentive",
       "ratting": 4,
       "answer": null
     },
     {
       "user_id": "0004",
+      "user_name": "Mia",
       "restaurant_id": "0001",
+      "restaurant_name": "El Chorizzo",
       "comment": "The waitress is very fast and the food is awesome",
       "ratting": 4,
       "answer": null
