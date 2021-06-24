@@ -29,10 +29,10 @@ export const RegularHome = () => {
   }, [])
 
   const handleRestaurantClick = (restaurantId) => {
-    console.log(restaurantId)
+
     history.push({
       pathname: `/restaurant-details/${restaurantId}`,
-      state: { restaurantId}
+      state: { restaurantId }
     })
 
   }
@@ -63,16 +63,16 @@ export const RegularHome = () => {
         key={`${restaurant.name}-${restaurant.id}`}
         onClick={() => handleRestaurantClick(restaurant.id)}
       >
-        <RestaurantItem 
+        <RestaurantItem
           key={`${restaurant.name}-${restaurant.id}_item`}
-          restaurant={restaurant} 
+          restaurant={restaurant}
         />
       </li>
     ))
   }
 
   return (
-    <div>
+    <div className="regular-user-home--wrapper">
       <div>
         <div className="filter-header">
           <p>Filter by stars:</p>
