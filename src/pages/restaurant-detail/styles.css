@@ -1,0 +1,25 @@
+.restaurant-detail--rating {
+    margin-bottom: 56px;
+}
+
+.restaurant-detail--rating > h4 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 16px;
+    font-family: 'Mate SC';
+}
+
+.restaurant-detail--rating > div {
+    display: flex;
+    align-items: center;
+}
+
+.restaurant-detail--rating > p {
+    width: 70%;
+}
+
+.restaurant-detail--rating > div > p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-right: 16px;
+}
