@@ -3,6 +3,7 @@
     background-image: url('../../../public/background.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .auth-container {
@@ -17,7 +18,7 @@
 .auth-content {
     margin-right: auto;
     width: 100%;
-    max-width: 60%;
+    max-width: 50%;
 }
 
 .auth-h1 {
@@ -46,5 +47,11 @@
 
 .auth-restaurant-avaliation {
     display: flex;
+    align-items: center;
+}
+
+.auth-header-container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
