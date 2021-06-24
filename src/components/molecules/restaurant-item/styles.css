@@ -8,8 +8,8 @@
     margin-right: 16px;
 }
 
-.restaurant-item--info-container {
-
+.restaurant-item--info-container > h3 {
+    font-weight: 400;
 }
 
 .restaurant-item--star-container > img{
