@@ -1,0 +1,37 @@
+.regular-home--filter-container {
+    margin-bottom: 32px;
+    display: flex;
+}
+
+.regular-home--filter-container > button {
+    border: none;
+    background-color: transparent;
+    margin-top: 16px;
+    margin-right: 8px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: ease-in-out .1s;
+}
+
+.regular-home--filter-container > button:hover {
+    background-color: hsl(34deg 83% 64% / 40%);
+}
+
+.regular-home--filter-container > button.active {
+    background-color: hsl(34deg 83% 64% / 40%);
+}
+
+.filter-header {
+    display: flex;
+}
+
+.clear-filter-button {
+    border: none;
+    background-color: transparent;
+    margin-left: 16px;
+}
