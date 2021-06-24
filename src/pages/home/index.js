@@ -21,12 +21,12 @@ export const Home = () => {
         break
       default:
         history.push('/')
-        toast.error('Oopps something wrong with your role! Please contact and admin')
+        toast.error('Oopps something wrong Please contact an admin')
     }
   }
 
   return (
-    <AuthenticatedLayout userName={user.name}>
+    <AuthenticatedLayout>
       {userRoleController()}
     </AuthenticatedLayout>
   )
