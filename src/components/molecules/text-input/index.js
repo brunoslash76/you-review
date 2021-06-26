@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
 import './styles.css'
 import openEyeIcon from 'public/visible.png'
 import closedEyeIcon from 'public/not-visible.png'
 
-export const TextInput = (props) => {
+export const TextInput = forwardRef((props, ref) => {
   const { error, type } = props
   const [isPasswordVisible, setPasswordVisible] = useState(true)
   const shouldShowPasswordButton = type === 'password'
@@ -11,6 +11,7 @@ export const TextInput = (props) => {
     <div className="text-input--container">
       <input
         {...props}
+        ref={ref}
         type={shouldShowPasswordButton && isPasswordVisible ? type : 'text'}
       />
       {shouldShowPasswordButton
@@ -21,7 +22,7 @@ export const TextInput = (props) => {
             onClick={() => setPasswordVisible(state => !state)}
           >
             <img
-              src={isPasswordVisible ?  openEyeIcon : closedEyeIcon}
+              src={isPasswordVisible ? openEyeIcon : closedEyeIcon}
               alt="Show password icon, an open or closed eye"
             />
           </button>
@@ -30,4 +31,4 @@ export const TextInput = (props) => {
       {error && <div className="text-input--error" >{error}</div>}
     </div>
   )
-}
+})
