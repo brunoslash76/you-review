@@ -5,7 +5,7 @@ import { AuthenticatedLayout } from "components/layout"
 import { RatingSelect } from "components/molecules"
 import { Button, GoBackButton } from "components/atoms"
 import { useUser } from "hooks/user-hook"
-import { postReview } from 'infra/http/restaurant-review'
+import { postReview, updateRestaurantReviews } from 'infra/http/restaurant-review'
 import './styles.css'
 
 export const RestaurantReview = () => {
@@ -13,12 +13,11 @@ export const RestaurantReview = () => {
   const history = useHistory()
   const { location: { state: { restaurant } } } = history
   const { user } = useUser()
-  const [rating, setRating] = useState(0)
-  const [disableForm, setDisableForm] = useState(false)
+  const [ rating, setRating ] = useState(0)
+  const [ disableForm, setDisableForm ] = useState(false)
   const textareaRef = useRef()
   const dateRef = useRef()
-  
-console.log(user)
+
   const handleSelect = (amount) => {
     setRating(amount)
   }
@@ -42,6 +41,7 @@ console.log(user)
         "created_at": dateRef.current.value
       }
       await postReview(body)
+      updateRestaurantReviews(restaurant)
       toast.success(
         'Your review was posted with success! We are going to redirect you!',
         {
@@ -113,3 +113,7 @@ console.log(user)
     </AuthenticatedLayout>
   )
 }
+
+RestaurantReview.path = '/restaurant-review/:id'
+RestaurantReview.secure = true
+RestaurantReview.title = 'Restaurant Review'
