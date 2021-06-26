@@ -57,7 +57,8 @@ export const RegularHome = () => {
   }
 
   const renderList = (array) => {
-    return array.map(restaurant => (
+    
+    const result = array.map(restaurant => (
       <li
         className="clickable"
         key={`${restaurant.name}-${restaurant.id}`}
@@ -69,6 +70,7 @@ export const RegularHome = () => {
         />
       </li>
     ))
+    return result.length > 0 ? result : <p>No restaurant registered</p>
   }
 
   return (
