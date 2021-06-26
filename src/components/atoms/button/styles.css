@@ -10,6 +10,11 @@
     font-weight: 800;
 }
 
+.danger {
+    background-color: var(--alert);
+    color: white;
+}
+
 .loader {
     position: absolute;
     width: 40px;
@@ -19,7 +24,7 @@
 }
 
 .small {
-    width: 61px;
+    width: fit-content;
     font-size: 12px;
     font-weight: 700;
     font-family: 'Roboto';
