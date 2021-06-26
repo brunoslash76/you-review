@@ -1,0 +1,45 @@
+.admin-home--wrapper {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.admin-home--section {
+
+    flex: 1;
+}
+
+.admin-home--section > div{
+    overflow-y: scroll;
+    padding: 0 8px;
+    height: calc(100vh - 212px);
+}
+
+.admin-home--section h4 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.admin-home--section > div > div {
+    margin-bottom: 24px;
+}
+
+.render-container {
+    margin-bottom: 16px;
+}
+
+.render-user-container--user-role {
+    margin-bottom: 8px;
+}
+
+.render-restaurant-container--reviews {
+    margin-bottom: 8px;
+}
+
+.render-reviews-container--comments-container {
+    margin-bottom: 8px;
+}
+
+.render-reviews-container--info {
+    margin-bottom: 8px;
+}
