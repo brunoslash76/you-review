@@ -5,14 +5,17 @@ import { AuthenticatedLayout } from 'components/layout'
 import { RatingStars } from 'components/molecules'
 import { Button } from 'components/atoms'
 import { getRestaurant, getRestaurantReviews } from 'infra/http/restaurant-detail'
-import './styles.css'
 import { GoBackButton } from 'components/atoms/go-back-button'
+import './styles.css'
+import { useUser } from 'hooks/user-hook'
+import { ROLES } from 'helpers/home'
 
 export const RestaurantDetail = () => {
   const history = useHistory()
   const [restaurant, setRestaurant] = useState(null)
   const [reviews, setReviews] = useState([])
   const { restaurantId } = history.location.state
+  const { user } = useUser()
 
   useEffect(() => {
     async function getRestaurantDetail() {
@@ -40,6 +43,15 @@ export const RestaurantDetail = () => {
     }
     getReviews()
   }, [restaurantId])
+
+  // const ratingUpdate = () => {
+  //   const average = calculateAverageRating(reviews)
+  //   try {
+  //     const restaurant = 
+  //   } catch (error) {
+
+  //   }
+  // }
 
   const renderHighestReview = () => {
     const review = reviews?.sort((item1, item2) => item1.ratting < item2.ratting ? 1 : -1)[0]
@@ -103,13 +115,16 @@ export const RestaurantDetail = () => {
         <h4>Last Rate</h4>
         {renderLatestReview()}
       </section>
-      <Button kind="primary" onClick={() => handleCreateReview()}>
-        Make your review
-      </Button>
+      {user.role !== ROLES.owner
+        && (
+          <Button kind="primary" onClick={() => handleCreateReview()}>
+            Make your review
+          </Button>
+        )}
     </AuthenticatedLayout>
   )
 }
 
 RestaurantDetail.path = '/restaurant-details/:id'
-RestaurantDetail.secure = false
+RestaurantDetail.secure = true
 RestaurantDetail.title = 'Restaurant Details'
