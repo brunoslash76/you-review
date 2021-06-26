@@ -1,0 +1,79 @@
+.owner-user-home--wrapper {
+    flex: 1;
+}
+
+.owner-user-home--wrapper h2 {
+    margin-bottom: 32px;
+    font-size: 54px;
+}
+
+.owner-home--button-container {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.owner-home--button-container > div{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    color: var(--light-gray);
+    font-size: 32px;
+    font-weight: 200;
+    font-family: 'Roboto';
+}
+
+.owner-home--button-container > p {
+    font-family: 'Roboto';
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.restaurant-pending-reviews--container {
+    margin-bottom: 32px;
+}
+
+.restaurant-pending-reviews--container h3 {
+    font-weight: 300;
+    font-family: 'Roboto';
+    margin-bottom: 16px;
+}
+
+.restaurant-pending-reviews--info > div {
+    margin-bottom: 16px;
+}
+
+.restaurant-pending-reviews--info > div > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.restaurant-pending-reviews--info > div > p {
+    margin-bottom: 8px;
+}
+
+.restaurant-pending-reviews--info > div > div > p {
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.restaurant-pending-reviews--info-content {
+    position: relative;
+}
+
+.button-container > button:first-child {
+    margin-right: 8px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
