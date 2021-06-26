@@ -3,10 +3,10 @@ import loader from '../../../public/loader.gif'
 import './styles.css'
 
 export const Button = (props) => {
-  const { children, kind, loading } = props
+  const { children, kind, loading, size = '' } = props
   return (
     <button
-      className={kind}
+      className={`${kind} ${size}`}
       {...props}
     >
       {children}

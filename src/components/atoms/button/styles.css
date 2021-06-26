@@ -17,3 +17,13 @@
     top: 5px;
     right: 14px;
 }
+
+.small {
+    width: 61px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Roboto';
+    height: 20px;
+    border-radius: 8px;
+    border: none;
+}
