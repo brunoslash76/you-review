@@ -52,6 +52,15 @@
 
 .auth-header-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.auth-header-container > div {
+    display: flex;
+}
+
+.auth-header-container > button {
+    align-self: flex-end;
 }

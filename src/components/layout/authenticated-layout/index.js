@@ -1,3 +1,4 @@
+import { LogoutButton } from 'components/atoms/logout-button'
 import { RatingStars } from 'components/molecules'
 import './styles.css'
 
@@ -10,8 +11,11 @@ export const AuthenticatedLayout = (props) => {
         <section className="auth-content">
           <header className="auth-header">
             <div className="auth-header-container">
-              {navigation && navigation()}
-              <h1 className="auth-h1">{title ? title : 'You Review'}</h1>
+              <div>
+                {navigation && navigation()}
+                <h1 className="auth-h1">{title ? title : 'You Review'}</h1>
+              </div>
+              <LogoutButton />
             </div>
             <div className={!!restaurant ? "auth-subtitle" : "auth-name-right"}>
               {
