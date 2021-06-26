@@ -6,9 +6,9 @@ import { RatingStars } from 'components/molecules'
 import { Button } from 'components/atoms'
 import { getRestaurant, getRestaurantReviews } from 'infra/http/restaurant-detail'
 import { GoBackButton } from 'components/atoms/go-back-button'
-import './styles.css'
 import { useUser } from 'hooks/user-hook'
 import { ROLES } from 'helpers/home'
+import './styles.css'
 
 export const RestaurantDetail = () => {
   const history = useHistory()
@@ -44,15 +44,6 @@ export const RestaurantDetail = () => {
     getReviews()
   }, [restaurantId])
 
-  // const ratingUpdate = () => {
-  //   const average = calculateAverageRating(reviews)
-  //   try {
-  //     const restaurant = 
-  //   } catch (error) {
-
-  //   }
-  // }
-
   const renderHighestReview = () => {
     const review = reviews?.sort((item1, item2) => item1.ratting < item2.ratting ? 1 : -1)[0]
     return renderReview(review)
@@ -73,7 +64,7 @@ export const RestaurantDetail = () => {
     return renderReview(review)
   }
 
-  const renderReview = (review) => {
+  const renderReview = (review, isLat4est = false) => {
     if (!review || review.length <= 0) {
       return <p>This restaurant has no reviews!</p>
     }
@@ -85,12 +76,14 @@ export const RestaurantDetail = () => {
         </div>
         <p>{review.comment}</p>
         {review.answer && <p>{review.answer}</p>}
+        {isLat4est && !!review.answer ? <p>{review.answer}</p> : <p>The owner didn't reply yet!</p>}
+        <p className="visited">visited at: {review.created_at}</p>
       </>
     )
   }
 
   const handleCreateReview = () => {
-    return history.push({ pathname: `/review`, state: { restaurant } })
+    return history.push({ pathname: `/restaurant-review/${restaurant.id}`, state: { restaurant } })
   }
 
   return (
@@ -101,26 +94,31 @@ export const RestaurantDetail = () => {
         <GoBackButton />
       )}
     >
-      <section className="restaurant-detail--rating">
-        <h4>Highest Rate</h4>
-        {renderHighestReview()}
-      </section>
-
-      <section className="restaurant-detail--rating">
-        <h4>Lowest Rate</h4>
-        {renderLowestReview()}
-      </section>
-
-      <section className="restaurant-detail--rating">
-        <h4>Last Rate</h4>
-        {renderLatestReview()}
-      </section>
       {user.role !== ROLES.owner
         && (
-          <Button kind="primary" onClick={() => handleCreateReview()}>
-            Make your review
-          </Button>
+          <div className="review-button-container">
+            <Button kind="primary" onClick={() => handleCreateReview()}>
+              Make your review
+            </Button>
+          </div>
         )}
+      <div className="restaurant-detail--content">
+        <section className="restaurant-detail--rating">
+          <h4>Highest Rate</h4>
+          {renderHighestReview()}
+        </section>
+
+        <section className="restaurant-detail--rating">
+          <h4>Lowest Rate</h4>
+          {renderLowestReview()}
+        </section>
+
+        <section className="restaurant-detail--rating">
+          <h4>Last Rate</h4>
+          {renderLatestReview()}
+        </section>
+      </div>
+
     </AuthenticatedLayout>
   )
 }
