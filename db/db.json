@@ -8,300 +8,84 @@
       "role": "admin"
     },
     {
-      "id": "0001",
-      "name": "jonas",
-      "email": "jonas@email.com",
+      "name": "Joe Satriani",
       "password": "123456",
-      "role": "owner"
-    },
-    {
-      "id": "0002",
-      "name": "Joe",
       "email": "joe@email.com",
+      "role": "regular",
+      "id": "qsHAQVL"
+    },
+    {
+      "name": "Naomi Schettini",
       "password": "123456",
-      "role": "regular"
-    },
-    {
-      "id": "0003",
-      "name": "Jena",
-      "email": "jena@email.com",
-      "password": "123456",
-      "role": "regular"
-    },
-    {
-      "id": "0004",
-      "name": "Mia",
-      "email": "mia@email.com",
-      "password": "123456",
-      "role": "regular"
-    },
-    {
-      "id": "0005",
-      "name": "malaquias",
-      "email": "malaquias@email.com",
-      "password": "123456",
-      "role": "owner"
-    },
-    {
-      "id": "0006",
-      "name": "Don Corleone",
-      "email": "don@email.com",
-      "password": "123456",
-      "role": "owner"
-    },
-    {
-      "id": "0007",
-      "name": "Don Corleone",
-      "email": "don@email.com",
-      "password": "123456",
-      "role": "owner"
-    },
-    {
-      "name": "Bruno",
-      "password": "123456",
-      "email": "bruno.russo@gmail.com",
-      "id": "xqJPVPO"
-    },
-    {
-      "name": "bruno",
-      "password": "123456",
-      "email": "bruno@gmail.com",
-      "id": "ECR3rj0"
-    },
-    {
-      "name": "bruno",
-      "password": "123456",
-      "email": "bruno@email.com",
-      "id": "ZpwzkQX"
-    },
-    {
-      "name": "bruno",
-      "password": "123456",
-      "email": "bruno@email.com",
-      "id": "RPNqCRx"
-    },
-    {
-      "name": "bruno",
-      "password": "123456",
-      "email": "bruno@email.com",
-      "id": "145JOWf"
-    },
-    {
-      "name": "Bruno",
-      "password": "123123",
-      "email": "bruno@email.com",
-      "id": "HT6-Fmq"
-    },
-    {
-      "name": "Bruno",
-      "email": "bruno@gmail.com",
-      "password": "123123",
-      "id": "0008"
-    },
-    {
-      "name": "Banana",
-      "password": "123123",
-      "email": "nanica@email.com",
-      "id": "Hhfrle7"
-    },
-    {
-      "name": "Banana",
-      "password": "123123",
-      "email": "nanica@email.com",
-      "id": "4Vxt3T2"
-    },
-    {
-      "name": "Malaquias",
-      "password": "123456",
-      "email": "malaquinha@email.com",
-      "id": "epuJCJf"
-    },
-    {
-      "name": "bruno",
-      "password": "123123123",
-      "email": "a@b.com",
+      "email": "naomi@email.com",
       "role": "owner",
-      "id": "gt_sSbL"
+      "id": "kBognVg"
     }
   ],
   "restaurants": [
     {
-      "id": "0002",
-      "owner_id": "0001",
-      "name": "Flavors of Lebanon",
-      "average_rating": 4,
-      "total_reviews": 3
-    },
-    {
-      "id": "0003",
-      "owner_id": "0006",
-      "name": "Café del Mar",
-      "average_rating": 0,
-      "total_reviews": 0
-    },
-    {
-      "id": "0004",
-      "owner_id": "0002",
-      "name": "Cadillac Burger",
-      "average_rating": 1,
-      "total_reviews": 3
-    },
-    {
-      "id": "0005",
-      "owner_id": "0001",
-      "name": "Mané Burguer",
-      "average_rating": 2,
-      "total_reviews": 1
-    },
-    {
-      "id": "0006",
-      "owner_id": "0010",
-      "name": "Taj Mahal",
-      "average_rating": 3,
-      "total_reviews": 6
-    },
-    {
-      "id": "0007",
-      "owner_id": "0010",
-      "name": "Sukyia",
-      "average_rating": 0,
-      "total_reviews": 0
-    },
-    {
-      "id": "0008",
-      "owner_id": "0010",
-      "name": "Feijão de Corda",
-      "average_rating": 4,
-      "total_reviews": 130
-    },
-    {
-      "owner_id": "0001",
+      "owner_id": "kBognVg",
       "name": "La Bella Cintra",
-      "average_rating": 0,
-      "total_reviews": 0,
-      "id": "JlyyM-W"
+      "average_rating": 3,
+      "total_reviews": 6,
+      "id": 1
     }
   ],
   "reviews": [
     {
-      "id": "0000",
-      "user_id": "0002",
-      "user_name": "Joe",
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "comment": "Very nice service and food",
-      "ratting": 1,
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "banana",
+      "ratting": 5,
       "answer": null,
-      "created_at": "2021-05-23"
+      "created_at": "2021-06-17",
+      "id": 1
     },
     {
-      "id": "0001",
-      "user_id": "0003",
-      "user_name": "Jena",
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "comment": "The owner is very attentive",
-      "ratting": 2,
-      "answer": null,
-      "created_at": "2021-05-22"
-    },
-    {
-      "id": "0002",
-      "user_id": "0004",
-      "user_name": "Mia",
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "comment": "The waitress is very fast and the food is awesome",
-      "ratting": 3,
-      "answer": null,
-      "created_at": "2021-05-21"
-    },
-    {
-      "id": "0003",
-      "user_id": "0003",
-      "user_name": "Jena",
-      "restaurant_id": "0002",
-      "restaurant_name": "Flavors of Lebanon",
-      "comment": "The owner is very attentive",
-      "ratting": 4,
-      "answer": "Banana alicate",
-      "created_at": "2021-05-20"
-    },
-    {
-      "id": "0004",
-      "user_id": "0003",
-      "user_name": "Muri",
-      "restaurant_id": "0002",
-      "restaurant_name": "Flavors of Lebanon",
-      "comment": "The owner is very attentive",
-      "ratting": 2,
-      "answer": "Banana Nazaranga",
-      "created_at": "2021-05-13"
-    },
-    {
-      "id": "0005",
-      "user_id": "0003",
-      "user_name": "Ilia",
-      "restaurant_id": "0002",
-      "restaurant_name": "Flavors of Lebanon",
-      "comment": "The owner is very attentive",
-      "ratting": 4,
-      "answer": "Tupangaré",
-      "created_at": "2021-05-20"
-    },
-    {
-      "id": "0006",
-      "user_id": "0002",
-      "user_name": "Joe",
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "comment": "The owner is very attentive",
-      "ratting": 4,
-      "answer": null,
-      "created_at": "2021-05-19"
-    },
-    {
-      "id": "0007",
-      "user_id": "0004",
-      "user_name": "Mia",
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "comment": "The waitress is very fast and the food is awesome",
-      "ratting": 4,
-      "answer": null,
-      "created_at": "2021-05-18"
-    },
-    {
-      "answer": null,
-      "comment": "Amazing service and food",
-      "created_at": "2021-06-24",
-      "ratting": 3,
-      "restaurant_id": "0001",
-      "restaurant_name": "El Chorizzo",
-      "user_name": "Joe",
-      "id": "01uQCkc"
-    },
-    {
-      "user_id": "0002",
-      "user_name": "Joe",
-      "restaurant_id": "0005",
-      "restaurant_name": "Mané Burguer",
-      "comment": "Amazing service and food",
-      "ratting": 3,
-      "answer": "bnaananana",
-      "created_at": "2021-06-24",
-      "id": "Wh_72_v"
-    },
-    {
-      "user_id": "0002",
-      "user_name": "Joe",
-      "restaurant_id": "0007",
-      "restaurant_name": "Sukyia",
-      "comment": "aweosme",
-      "ratting": 3,
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "Joe Satriani didn't leave a comment.",
+      "ratting": 5,
       "answer": null,
       "created_at": "2021-06-09",
-      "id": "gjTFTnh"
+      "id": 2
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "autoback",
+      "ratting": 3,
+      "answer": null,
+      "created_at": "2021-06-17",
+      "id": 3
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "Joe Satriani didn't leave a comment.",
+      "ratting": 5,
+      "answer": null,
+      "created_at": "2021-06-16",
+      "id": 4
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "Tupangaré",
+      "ratting": 1,
+      "answer": null,
+      "created_at": "2021-06-10",
+      "id": 5
     }
   ]
 }
