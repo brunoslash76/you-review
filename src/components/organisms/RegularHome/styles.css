@@ -1,5 +1,5 @@
 .regular-user-home--wrapper > ol {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: calc(100vh - 305px);
 }
 
