@@ -116,7 +116,7 @@ export const OwnerHome = () => {
   }
 
   const handleAddNewRestaurant = () => {
-    return history.push('/add-restaurant')
+    history.push('/add-restaurant')
   }
 
   return (
@@ -144,5 +144,4 @@ export const OwnerHome = () => {
       </div>
     </AuthenticatedLayoutOwner>
   )
-
 }
