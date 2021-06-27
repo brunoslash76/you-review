@@ -69,7 +69,7 @@ export const OwnerHome = () => {
     ))
   }
 
-  const handleAproveClick = async (review) => {
+  const handleApproveClick = async (review) => {
     try {
       await updateReviews(review.id, review)
       toast.success(`Your answer was replied with success to ${review.user_name}`)
@@ -79,16 +79,14 @@ export const OwnerHome = () => {
     }
   }
 
-  const rederPendingReviewsList = () => {
+  const renderPendingReviewsList = () => {
     const toBeRendered = []
     for (let i = 0; i < reviews.length; i++) {
       toBeRendered.push(
         <div className="restaurant-pending-reviews--container" key={reviews[i][0]?.restaurant_name}>
           <h3>{reviews[i][0]?.restaurant_name}</h3>
           <div className="restaurant-pending-reviews--info">
-
             {reviews[i].map((review, index) => {
-
               return !review.answer && (
                 <div className="restaurant-pending-reviews--info-content" key={`review_${review.user_name}_${index}`}>
                   <div>
@@ -103,15 +101,13 @@ export const OwnerHome = () => {
                     type="button"
                     kind="primary"
                     size="small"
-                    onClick={() => handleAproveClick(review)}
+                    onClick={() => handleApproveClick(review)}
                   >
-                    approve
+                    add your response
                   </Button>
                 </div>
               )
-
             })}
-
           </div>
         </div>
       )
@@ -143,7 +139,7 @@ export const OwnerHome = () => {
       <div className="owner-user-home--wrapper">
         <h2>Pending reviews</h2>
         <div>
-          {rederPendingReviewsList()}
+          {renderPendingReviewsList()}
         </div>
       </div>
     </AuthenticatedLayoutOwner>

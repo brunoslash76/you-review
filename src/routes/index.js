@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import * as Screens from '../pages'
+import * as Screens from 'pages'
 
 export const AppRouter = () => {
   const routes = React.useMemo(() => Object.values(Screens), [])

@@ -20,15 +20,43 @@
       "email": "naomi@email.com",
       "role": "owner",
       "id": "kBognVg"
+    },
+    {
+      "name": "Rodrigo",
+      "password": "123456",
+      "email": "rodrigo@email.com",
+      "role": "owner",
+      "id": "3ddkgGc"
     }
   ],
   "restaurants": [
     {
       "owner_id": "kBognVg",
       "name": "La Bella Cintra",
-      "average_rating": 3,
-      "total_reviews": 6,
+      "average_rating": 4,
+      "total_reviews": 8,
       "id": 1
+    },
+    {
+      "owner_id": "3ddkgGc",
+      "name": "Pizza Place RRB",
+      "average_rating": 5,
+      "total_reviews": 2,
+      "id": 2
+    },
+    {
+      "owner_id": "3ddkgGc",
+      "name": "Banana D`agua",
+      "average_rating": 5,
+      "total_reviews": 1,
+      "id": 3
+    },
+    {
+      "owner_id": "3ddkgGc",
+      "name": "Toca do Saci",
+      "average_rating": 0,
+      "total_reviews": 0,
+      "id": 4
     }
   ],
   "reviews": [
@@ -86,6 +114,61 @@
       "answer": null,
       "created_at": "2021-06-10",
       "id": 5
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "Tabatinguetá!",
+      "ratting": 4,
+      "answer": null,
+      "created_at": "2021-06-24",
+      "id": 6
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 1,
+      "restaurant_name": "La Bella Cintra",
+      "comment": "Tupangolé",
+      "ratting": 5,
+      "answer": null,
+      "created_at": "",
+      "id": 7
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 2,
+      "restaurant_name": "Pizza Place RRB",
+      "comment": "Awesome pizza and coca-cola!",
+      "ratting": 5,
+      "answer": "Thank you! ",
+      "created_at": "2021-06-26",
+      "id": 8
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 2,
+      "restaurant_name": "Pizza Place RRB",
+      "comment": "beautiful yard!",
+      "ratting": 5,
+      "answer": null,
+      "created_at": "2021-06-20",
+      "id": 9
+    },
+    {
+      "user_id": "qsHAQVL",
+      "user_name": "Joe Satriani",
+      "restaurant_id": 3,
+      "restaurant_name": "Banana D`agua",
+      "comment": "Perfect!",
+      "ratting": 5,
+      "answer": null,
+      "created_at": "2021-06-26",
+      "id": 10
     }
   ]
 }

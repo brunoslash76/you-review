@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthenticatedLayout } from 'components/layout'
 import { RatingStars } from 'components/molecules'
@@ -14,7 +14,7 @@ export const RestaurantDetail = () => {
   const history = useHistory()
   const [restaurant, setRestaurant] = useState(null)
   const [reviews, setReviews] = useState([])
-  const { restaurantId } = history.location.state
+  const { restaurantId } = useParams()
   const { user } = useUser()
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export const RestaurantDetail = () => {
     return renderReview(review)
   }
 
-  const renderReview = (review, isLat4est = false) => {
+  const renderReview = (review, isLatest = false) => {
     if (!review || review.length <= 0) {
       return <p>This restaurant has no reviews!</p>
     }
@@ -76,14 +76,14 @@ export const RestaurantDetail = () => {
         </div>
         <p>{review.comment}</p>
         {review.answer && <p>{review.answer}</p>}
-        {isLat4est && !!review.answer ? <p>{review.answer}</p> : <p>The owner didn't reply yet!</p>}
+        {isLatest && !!review.answer ? <p>{review.answer}</p> : <p>The owner didn't reply yet!</p>}
         <p className="visited">visited at: {review.created_at}</p>
       </>
     )
   }
 
   const handleCreateReview = () => {
-    return history.push({ pathname: `/restaurant-review/${restaurant.id}`, state: { restaurant } })
+    history.push({ pathname: `/restaurant-review/${restaurant.id}` })
   }
 
   return (
@@ -97,7 +97,7 @@ export const RestaurantDetail = () => {
       {user.role !== ROLES.owner
         && (
           <div className="review-button-container">
-            <Button kind="primary" onClick={() => handleCreateReview()}>
+            <Button kind="primary" onClick={handleCreateReview}>
               Make your review
             </Button>
           </div>
@@ -123,6 +123,6 @@ export const RestaurantDetail = () => {
   )
 }
 
-RestaurantDetail.path = '/restaurant-details/:id'
+RestaurantDetail.path = '/restaurant-details/:restaurantId'
 RestaurantDetail.secure = true
 RestaurantDetail.title = 'Restaurant Details'

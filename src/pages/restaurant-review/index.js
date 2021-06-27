@@ -1,22 +1,35 @@
 import { useRef, useState } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify"
 import { AuthenticatedLayout } from "components/layout"
 import { RatingSelect } from "components/molecules"
 import { Button, GoBackButton } from "components/atoms"
 import { useUser } from "hooks/user-hook"
-import { postReview, updateRestaurantReviews } from 'infra/http/restaurant-review'
+import { postReview, updateRestaurantReviews, getRestaurant } from 'infra/http/restaurant-review'
 import './styles.css'
+import { useEffect } from "react/cjs/react.development"
 
 export const RestaurantReview = () => {
-
+  const { restaurantId } = useParams()
   const history = useHistory()
-  const { location: { state: { restaurant } } } = history
   const { user } = useUser()
-  const [ rating, setRating ] = useState(0)
-  const [ disableForm, setDisableForm ] = useState(false)
+  const [rating, setRating] = useState(0)
+  const [ restaurant, setRestaurant ] = useState()
+  const [disableForm, setDisableForm] = useState(false)
   const textareaRef = useRef()
   const dateRef = useRef()
+
+  useEffect(() => {
+    async function fetchRestaurant() {
+      try {
+        const { data } = await getRestaurant(restaurantId)
+        setRestaurant(data)
+      } catch (error) {
+        toast.error('Oopss, we had a problem fetching restaurants')
+      }
+    }
+    fetchRestaurant()
+  }, [restaurantId])
 
   const handleSelect = (amount) => {
     setRating(amount)
@@ -114,6 +127,6 @@ export const RestaurantReview = () => {
   )
 }
 
-RestaurantReview.path = '/restaurant-review/:id'
+RestaurantReview.path = '/restaurant-review/:restaurantId'
 RestaurantReview.secure = true
 RestaurantReview.title = 'Restaurant Review'

@@ -7,6 +7,10 @@ export const postReview = (body) => {
     return post(REVIEWS_URL, body)
 }
 
+export const getRestaurant = (restaurantId) => {
+    return get(`${RESTAURANT_URL}?id=${restaurantId}`)
+}
+
 export const updateRestaurantReviews = async (restaurant) => {
     try {
         const { data } = await get(`${REVIEWS_URL}?restaurant_id=${restaurant.id}`)
