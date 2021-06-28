@@ -11,7 +11,7 @@
 .admin-home--section > div{
     overflow-y: scroll;
     padding: 0 8px;
-    height: calc(100vh - 212px);
+    height: calc(100vh - 312px);
 }
 
 .admin-home--section h4 {

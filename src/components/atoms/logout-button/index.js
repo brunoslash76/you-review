@@ -1,5 +1,6 @@
 import { useUser } from "hooks/user-hook"
 import { useHistory } from "react-router-dom"
+import './styles.css'
 
 export const LogoutButton = () => {
   const { setUser } = useUser()
