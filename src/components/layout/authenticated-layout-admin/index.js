@@ -1,3 +1,4 @@
+import { LogoutButton } from 'components/atoms/logout-button'
 import { useUser } from 'hooks/user-hook'
 import './styles.css'
 
@@ -9,6 +10,7 @@ export const AuthenticatedLayoutAdmin = (props) => {
       <div className="auth-admin-container">
         <h1>You Review</h1>
         <h2>Amdin - {user.name}</h2>
+        <LogoutButton />
         <main className="auth-admin-content">
           {children}
         </main>
