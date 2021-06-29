@@ -19,11 +19,10 @@ export const updateRestaurantReviews = async (restaurant) => {
         for (let i = 0; i < data.length; i++) {
             sum += data[i].ratting
         }
-        debugger
         const average = Math.floor(sum / data.length)
-
         restaurant.average_rating = average
         restaurant.total_reviews = restaurant.total_reviews + 1
+
         await put(`${RESTAURANT_URL}/${restaurant.id}`, restaurant)
 
     } catch(error) {

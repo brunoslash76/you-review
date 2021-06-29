@@ -23,7 +23,7 @@ export const RestaurantReview = () => {
     async function fetchRestaurant() {
       try {
         const { data } = await getRestaurant(restaurantId)
-        setRestaurant(data)
+        setRestaurant(data[0])
       } catch (error) {
         toast.error('Oopss, we had a problem fetching restaurants')
       }
@@ -41,7 +41,7 @@ export const RestaurantReview = () => {
       return toast.error('Oopss it seems you are trying to travel to the future! Please select another date!')
     }
     setDisableForm(true)
-
+    console.log(restaurant)
     try {
       const body = {
         "user_id": user.id,
@@ -54,6 +54,7 @@ export const RestaurantReview = () => {
         "created_at": dateRef.current.value
       }
       await postReview(body)
+      console.log(restaurant)
       updateRestaurantReviews(restaurant)
       toast.success(
         'Your review was posted with success! We are going to redirect you!',
@@ -79,7 +80,7 @@ export const RestaurantReview = () => {
 
   return (
     <AuthenticatedLayout
-      title={restaurant.name}
+      title={restaurant?.name}
       restaurant={restaurant}
       navigation={() => (<GoBackButton />)}
     >
