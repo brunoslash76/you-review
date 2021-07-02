@@ -1,8 +1,8 @@
+import { AuthenticatedLayout } from 'components/layout'
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
 import { toast } from 'react-toastify'
 import { getRestaurants } from 'infra/http'
-import { RestaurantItem, AuthenticatedLayout } from 'components'
+import { RestaurantList } from './components'
 import star from 'public/star.png'
 import './styles.css'
 
@@ -11,7 +11,6 @@ export const RegularHome = () => {
   const [restaurants, setRestaurants] = useState([])
   const [filteredRestaurants, setFilteredRestaurants] = useState([])
   const [selectedRate, setSelectedRate] = useState(null)
-  const history = useHistory()
 
   useEffect(() => {
     async function fetchRestaurants() {
@@ -28,49 +27,15 @@ export const RegularHome = () => {
     fetchRestaurants()
   }, [])
 
-  const handleRestaurantClick = (restaurantId) => {
-
-    history.push({
-      pathname: `/restaurant-details/${restaurantId}`,
-      state: { restaurantId }
-    })
-
-  }
-
-  const renderRestaurantList = () => {
-    return renderList(restaurants)
-  }
-
   const handleFilterClick = (rate) => {
     const filtered = restaurants.filter(restaurant => restaurant.average_rating === rate)
     setFilteredRestaurants(filtered)
     setSelectedRate(rate)
   }
 
-  const renderFilteredRestaurants = () => {
-    return renderList(filteredRestaurants)
-  }
-
   const handleClearFilter = () => {
     setFilteredRestaurants([])
     setSelectedRate(null)
-  }
-
-  const renderList = (array) => {
-    
-    const result = array.map(restaurant => (
-      <li
-        className="clickable"
-        key={`${restaurant.name}-${restaurant.id}`}
-        onClick={() => handleRestaurantClick(restaurant.id)}
-      >
-        <RestaurantItem
-          key={`${restaurant.name}-${restaurant.id}_item`}
-          restaurant={restaurant}
-        />
-      </li>
-    ))
-    return result.length > 0 ? result : <p>No restaurant registered</p>
   }
 
   return (
@@ -100,11 +65,7 @@ export const RegularHome = () => {
           </div>
         </div>
         <ol>
-          {
-            filteredRestaurants.length > 0
-              ? renderFilteredRestaurants()
-              : renderRestaurantList()
-          }
+          <RestaurantList restaurantArray={filteredRestaurants.length > 0 ? filteredRestaurants : restaurants} />
         </ol>
       </div>
     </AuthenticatedLayout>

@@ -1,0 +1,8 @@
+.regular-user-home--wrapper > ol {
+    overflow-y: auto;
+    height: calc(100vh - 305px);
+}
+
+.regular-user-home--wrapper > ol::-webkit-scrollbar-track {
+    background: transparent;
+}

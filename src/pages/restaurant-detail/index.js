@@ -12,8 +12,8 @@ import './styles.css'
 
 export const RestaurantDetail = () => {
   const history = useHistory()
-  const [restaurant, setRestaurant] = useState(null)
-  const [reviews, setReviews] = useState([])
+  const [ restaurant, setRestaurant ] = useState(null)
+  const [ reviews, setReviews ] = useState([])
   const { restaurantId } = useParams()
   const { user } = useUser()
 
@@ -60,7 +60,6 @@ export const RestaurantDetail = () => {
       const item2TimeStamp = new Date(item2.created_at)
       return item1TimeStamp < item2TimeStamp ? 1 : -1
     })[0]
-    console.log(review)
     return renderReview(review)
   }
 
