@@ -2,7 +2,12 @@ import { useHistory } from 'react-router-dom'
 import { RestaurantItem } from 'components/molecules'
 import './styles.css'
 
-export const RestaurantList = ({ restaurantArray }) => {
+export const RestaurantList = ({ 
+  restaurantArray,
+  hasAddRestaurantActions,
+  handleAddNewRestaurant
+}) => {
+  
   const history = useHistory()
   const handleRestaurantClick = (restaurantId) => {
     history.push(`/restaurant-details/${restaurantId}`)
@@ -20,5 +25,22 @@ export const RestaurantList = ({ restaurantArray }) => {
       />
     </li>
   ))
-  return result.length > 0 ? <ol>{result}</ol> : <p>No restaurant registered</p>
+  return result.length > 0
+    ? (
+      <ol>
+        {result}
+        {hasAddRestaurantActions
+          && <li className="clickable">
+            <button
+              className="owner-home--button-container"
+              onClick={handleAddNewRestaurant}
+            >
+              <div>+</div>
+              <p>Add Restaurant</p>
+            </button>
+          </li>
+        }
+      </ol>
+    )
+    : <p>No restaurant registered</p>
 }
