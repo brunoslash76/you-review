@@ -7,6 +7,7 @@ import { Button } from 'components/atoms'
 import { AuthenticatedLayoutOwner } from 'components/layout'
 import { useUser } from 'hooks/user-hook'
 import './styles.css'
+import { RestaurantList } from 'components/molecules/restaurant-list'
 
 export const OwnerHome = () => {
   const { user } = useUser()
@@ -46,28 +47,6 @@ export const OwnerHome = () => {
     }
     fetchPendingReviews()
   }, [restaurants, reloadReviews])
-
-  const handleRestaurantClick = (restaurantId) => {
-    history.push({
-      pathname: `/restaurant-details/${restaurantId}`,
-      state: { restaurantId }
-    })
-  }
-
-  const renderRestaurantList = () => {
-    return restaurants.map(restaurant => (
-      <li
-        className="clickable"
-        key={`${restaurant.name}-${restaurant.id}`}
-        onClick={() => handleRestaurantClick(restaurant.id)}
-      >
-        <RestaurantItem
-          key={`${restaurant.name}-${restaurant.id}_item`}
-          restaurant={restaurant}
-        />
-      </li>
-    ))
-  }
 
   const handleApproveClick = async (review) => {
     try {
@@ -123,18 +102,11 @@ export const OwnerHome = () => {
     <AuthenticatedLayoutOwner>
       <div className="owner-user-home--wrapper">
         <h2>You Review</h2>
-        <ol>
-          {renderRestaurantList()}
-          <li className="clickable">
-            <button
-              className="owner-home--button-container"
-              onClick={handleAddNewRestaurant}
-            >
-              <div>+</div>
-              <p>Add Restaurant</p>
-            </button>
-          </li>
-        </ol>
+        <RestaurantList 
+          restaurantArray={restaurants}
+          handleAddNewRestaurant={handleAddNewRestaurant}
+          hasAddRestaurantActions
+        />
       </div>
       <div className="owner-user-home--wrapper">
         <h2>Pending reviews</h2>
