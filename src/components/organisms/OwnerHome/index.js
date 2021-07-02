@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import { toast } from 'react-toastify'
-import { getOwnerRestaurants, getPendingReview, updateReviews } from 'infra/http/home'
+import { getOwnerRestaurants, getPendingReview, updateReviews } from 'infra/http'
 import { RestaurantItem, RatingStars } from 'components/molecules'
 import { Button } from 'components/atoms'
 import { AuthenticatedLayoutOwner } from 'components/layout'

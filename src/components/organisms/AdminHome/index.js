@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react/cjs/react.development'
+import { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
 import { AuthenticatedLayoutAdmin } from 'components/layout'
+import { RatingStars } from 'components/molecules'
+import { Button } from 'components/atoms'
 import { useUser } from 'hooks/user-hook'
 import {
   getRestaurants,
@@ -9,11 +12,8 @@ import {
   updateReviews,
   deleteUser,
   deleteRestaurant
-} from 'infra/http/home'
+} from 'infra/http'
 import './styles.css'
-import { ToastContainer, toast } from 'react-toastify'
-import { Button } from 'components/atoms'
-import { RatingStars } from 'components/molecules'
 
 export const AdminHome = () => {
   const { user } = useUser()

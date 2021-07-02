@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import { toast } from 'react-toastify'
-import { getRestaurants } from 'infra/http/home'
+import { getRestaurants } from 'infra/http'
 import { RestaurantItem, AuthenticatedLayout } from 'components'
 import star from 'public/star.png'
 import './styles.css'

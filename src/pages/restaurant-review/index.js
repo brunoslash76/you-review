@@ -1,13 +1,12 @@
-import { useRef, useState } from "react"
-import { useHistory, useParams } from "react-router-dom"
-import { toast, ToastContainer } from "react-toastify"
-import { AuthenticatedLayout } from "components/layout"
-import { RatingSelect } from "components/molecules"
-import { Button, GoBackButton } from "components/atoms"
-import { useUser } from "hooks/user-hook"
-import { postReview, updateRestaurantReviews, getRestaurant } from 'infra/http/restaurant-review'
+import { useRef, useState, useEffect } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import { AuthenticatedLayout } from 'components/layout'
+import { RatingSelect } from 'components/molecules'
+import { Button, GoBackButton } from 'components/atoms'
+import { useUser } from 'hooks/user-hook'
+import { postReview, updateRestaurantReviews, getRestaurant } from 'infra/http'
 import './styles.css'
-import { useEffect } from "react/cjs/react.development"
 
 export const RestaurantReview = () => {
   const { restaurantId } = useParams()
@@ -44,14 +43,14 @@ export const RestaurantReview = () => {
     console.log(restaurant)
     try {
       const body = {
-        "user_id": user.id,
-        "user_name": user.name,
-        "restaurant_id": restaurant.id,
-        "restaurant_name": restaurant.name,
-        "comment": textareaRef.current.value || `${user.name} didn't leave a comment.`,
-        "ratting": rating,
-        "answer": null,
-        "created_at": dateRef.current.value
+        'user_id': user.id,
+        'user_name': user.name,
+        'restaurant_id': restaurant.id,
+        'restaurant_name': restaurant.name,
+        'comment': textareaRef.current.value || `${user.name} didn't leave a comment.`,
+        'ratting': rating,
+        'answer': null,
+        'created_at': dateRef.current.value
       }
       await postReview(body)
       console.log(restaurant)
@@ -86,7 +85,7 @@ export const RestaurantReview = () => {
     >
       <form className="form-container">
         <div className="textarea-container">
-          <label htmlFor="">Your Review</label>
+          <label>Your Review</label>
           <textarea
             id="comment"
             name="comment"

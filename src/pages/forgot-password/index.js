@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 import { UnauthenticatedLayout, TextInput, Button } from 'components'
 import { forgotPasswordValidations } from 'helpers/forgot-password'
 import { useUser } from 'hooks/user-hook'
-import { recoverPassword } from 'infra/http/forgot-password'
+import { recoverPassword } from 'infra/http'
 import './styles.css'
 import { ToastContainer, toast } from 'react-toastify'
 

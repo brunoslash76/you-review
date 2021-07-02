@@ -1,8 +1,8 @@
+import { useHistory } from 'react-router-dom'
 import { ROLES } from 'helpers/home'
-import { useUser } from 'hooks/user-hook'
 import { toast } from 'react-toastify'
 import { AdminHome, RegularHome, OwnerHome } from 'components'
-import { useHistory } from 'react-router-dom'
+import { useUser } from 'hooks/user-hook'
 
 export const Home = () => {
   const { user } = useUser()

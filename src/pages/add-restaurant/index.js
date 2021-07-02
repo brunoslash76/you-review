@@ -1,9 +1,9 @@
-import { useRef } from 'react/cjs/react.development'
+import { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AuthenticatedLayout, Button, GoBackButton, TextInput } from 'components'
 import { ROLES } from 'helpers/home'
 import { useUser } from 'hooks/user-hook'
-import { postNewRestaurant } from 'infra/http/add-restaurant'
+import { postNewRestaurant } from 'infra/http'
 import { toast } from 'react-toastify'
 import './styles.css'
 

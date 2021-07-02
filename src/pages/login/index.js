@@ -1,18 +1,17 @@
 import { useEffect, useState, useMemo } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 import { Link, useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { login } from 'infra/http/login'
-import { loginValidations } from '../../helpers'
-import { UnauthenticatedLayout, TextInput, Button } from '../../components'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import './styles.css'
+import { login } from 'infra/http'
+import { loginValidations } from 'helpers'
+import { UnauthenticatedLayout, TextInput, Button } from 'components'
 import { useUser } from 'hooks/user-hook'
+import 'react-toastify/dist/ReactToastify.css';
+import './styles.css'
 
-export const Login = (props) => {
+export const Login = () => {
   const [loading, setLoading] = useState(false)
-  const { user, setUser } = useUser()
+  const { setUser } = useUser()
   const history = useHistory()
 
   const handleLogin = async (payload) => {

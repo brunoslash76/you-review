@@ -1,14 +1,13 @@
 import { useState, useMemo } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
 import { Checkbox } from '@chakra-ui/react'
 import { useFormik } from 'formik'
-import { signup } from 'infra/http/signup'
+import { signup } from 'infra/http'
 import { signupValidations } from 'helpers'
-import { UnauthenticatedLayout, TextInput, Button } from '../../components'
+import { UnauthenticatedLayout, TextInput, Button } from 'components'
 import { useUser } from 'hooks/user-hook'
-
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'
 import './styles.css'
 
 export const SignUp = () => {
@@ -93,7 +92,7 @@ export const SignUp = () => {
             />
             <div className="actions-container">
               <div>
-                <Checkbox 
+                <Checkbox
                   size="md"
                   name="role"
                   id="role"
