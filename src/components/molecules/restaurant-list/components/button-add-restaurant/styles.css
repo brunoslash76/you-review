@@ -1,0 +1,28 @@
+.owner-home--button-container {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.owner-home--button-container > div{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    color: var(--light-gray);
+    font-size: 32px;
+    font-weight: 200;
+    font-family: 'Roboto';
+}
+
+.owner-home--button-container > p {
+    font-family: 'Roboto';
+    font-size: 2.2rem;
+    font-weight: 300;
+}

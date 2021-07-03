@@ -1,4 +1,12 @@
-export const PendingReviewsList = ({ reviews }) => {
+import { useState } from 'react'
+import { updateReviews } from 'infra/http'
+import { toast } from 'react-toastify'
+import { Button } from 'components/atoms'
+import { RatingStars } from 'components/molecules'
+
+export const PendingReviewsList = ({ reviews: reviewsArray }) => {
+
+  const [reviews, setReviews] = useState()
 
   const handleApproveClick = async (review) => {
     try {
@@ -7,21 +15,20 @@ export const PendingReviewsList = ({ reviews }) => {
        * subtract from current reviews array
        * and delete setReloadReviews
        */
-      await updateReviews(review.id, review)
+      const result = await updateReviews(review.id, review)
       toast.success(`Your answer was replied with success to ${review.user_name}`)
-      setReloadReviews(state => !state)
     } catch (error) {
       toast.error('Oopss we had a problem! Try again later')
     }
   }
 
   const toBeRendered = []
-  for (let i = 0; i < reviews.length; i++) {
+  for (let i = 0; i < reviewsArray.length; i++) {
     toBeRendered.push(
-      <div className="restaurant-pending-reviews--container" key={reviews[i][0]?.restaurant_name}>
-        <h3>{reviews[i][0]?.restaurant_name}</h3>
+      <div className="restaurant-pending-reviews--container" key={reviewsArray[i][0]?.restaurant_name}>
+        <h3>{reviewsArray[i][0]?.restaurant_name}</h3>
         <div className="restaurant-pending-reviews--info">
-          {reviews[i].map((review, index) => {
+          {reviewsArray[i].map((review, index) => {
             return !review.answer && (
               <div className="restaurant-pending-reviews--info-content" key={`review_${review.user_name}_${index}`}>
                 <div>
