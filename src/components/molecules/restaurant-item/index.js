@@ -1,5 +1,4 @@
 import { RestaurantPlaceholder } from 'components'
-import star from 'public/star.png'
 import { RatingStars } from '../rating-stars'
 import './styles.css'
 
@@ -18,7 +17,7 @@ export const RestaurantItem = ({ restaurant }) => {
       <div className="restaurant-item--info-container">
         <h3>{restaurant.name}</h3>
         <div className="restaurant-item--star-container">
-        <RatingStars averageRating={restaurant.average_rating}/>
+          <RatingStars averageRating={restaurant.average_rating}/>
         </div>
       </div>
     </div>
