@@ -2,7 +2,7 @@ import { AuthenticatedLayout } from 'components/layout'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { getRestaurants } from 'infra/http'
-import { RestaurantList } from './components'
+import { RestaurantList } from 'components/molecules'
 import star from 'public/star.png'
 import './styles.css'
 
