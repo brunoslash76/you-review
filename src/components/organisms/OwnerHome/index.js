@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import { toast } from 'react-toastify'
-import { getOwnerRestaurants, getPendingReview, updateReviews } from 'infra/http'
-import { RestaurantItem, RatingStars } from 'components/molecules'
-import { Button } from 'components/atoms'
+import { getOwnerRestaurants, getPendingReview } from 'infra/http'
 import { AuthenticatedLayoutOwner } from 'components/layout'
 import { useUser } from 'hooks/user-hook'
 import './styles.css'
 import { RestaurantList } from 'components/molecules/restaurant-list'
+import { PendingReviewsList } from './components/pending-reviews-list'
 
 export const OwnerHome = () => {
   const { user } = useUser()
   const [restaurants, setRestaurants] = useState([])
-  const [reloadReviews, setReloadReviews] = useState(false)
   const [reviews, setReviews] = useState([])
   const history = useHistory()
 
@@ -46,53 +44,7 @@ export const OwnerHome = () => {
       }
     }
     fetchPendingReviews()
-  }, [restaurants, reloadReviews])
-
-  const handleApproveClick = async (review) => {
-    try {
-      await updateReviews(review.id, review)
-      toast.success(`Your answer was replied with success to ${review.user_name}`)
-      setReloadReviews(state => !state)
-    } catch (error) {
-      toast.error('Oopss we had a problem! Try again later')
-    }
-  }
-
-  const renderPendingReviewsList = () => {
-    const toBeRendered = []
-    for (let i = 0; i < reviews.length; i++) {
-      toBeRendered.push(
-        <div className="restaurant-pending-reviews--container" key={reviews[i][0]?.restaurant_name}>
-          <h3>{reviews[i][0]?.restaurant_name}</h3>
-          <div className="restaurant-pending-reviews--info">
-            {reviews[i].map((review, index) => {
-              return !review.answer && (
-                <div className="restaurant-pending-reviews--info-content" key={`review_${review.user_name}_${index}`}>
-                  <div>
-                    <p>{review.user_name}</p>
-                    <RatingStars averageRating={review.ratting} />
-                  </div>
-                  <p>{review.comment}</p>
-                  <div>
-                    <textarea onChange={({ target }) => review.answer = target.value} />
-                  </div>
-                  <Button
-                    type="button"
-                    kind="primary"
-                    size="small"
-                    onClick={() => handleApproveClick(review)}
-                  >
-                    add your response
-                  </Button>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      )
-    }
-    return toBeRendered
-  }
+  }, [restaurants])
 
   const handleAddNewRestaurant = () => {
     history.push('/add-restaurant')
@@ -111,9 +63,12 @@ export const OwnerHome = () => {
       <div className="owner-user-home--wrapper">
         <h2>Pending reviews</h2>
         <div>
-          {renderPendingReviewsList()}
+          <PendingReviewsList 
+            reviews={reviews}
+          />
         </div>
       </div>
     </AuthenticatedLayoutOwner>
   )
 }
+
